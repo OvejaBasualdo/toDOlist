@@ -10,6 +10,12 @@ export class AppComponent {
   tareas: Todo[] = []; /* aquí declaramos el array para las tareas */
   newTarea: string; /* variable donde se almacenaran las tareas que vayamos a crear */
 
+constructor(){
+  let prueba = this.obtener_localStorage();
+  if(prueba?.length > 0) {
+    this.tareas = prueba;
+  }
+}
 
   saveToDo() {
     if (this.newTarea) {
@@ -17,6 +23,7 @@ export class AppComponent {
       ingresoTarea.name = this.newTarea;
       ingresoTarea.isCompleted = true;
       this.tareas.push(ingresoTarea);
+      this.grabar_localStorage(this.tareas);
       this.newTarea = '';
     } else {
       alert("Por favor, ingrese una nueva tarea ")
@@ -30,5 +37,19 @@ export class AppComponent {
   quitar(id:number){
     this.tareas = this.tareas.filter((v,i)=> i !==id);
   }
+
+  grabar_localStorage(listado: Todo[]){
+
+    let listaGrabada = localStorage.setItem('listaSalvada',JSON.stringify(listado));
+    console.log(localStorage.getItem('listaSalvada'));
+
+  }
+
+  obtener_localStorage(){
+    let listado= JSON.parse(localStorage.getItem('listaSalvada'));
+    return listado;
+  }
+
+
 
 }

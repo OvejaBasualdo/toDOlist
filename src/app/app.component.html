@@ -4,7 +4,7 @@
     <div class="row justify-content-md-center">
         <div class="col col-lg-2">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Tarea" aria-label="Recipient's username" aria-describedby="button-addon2" [(ngModel)]="newTarea">
+                <input type="text" class="form-control" placeholder="Tarea" aria-describedby="button-addon2" [(ngModel)]="newTarea" autofocus>
                 <button class="btn btn-outline-secondary btn-success" type="button" id="boton-tarea" (click)="saveToDo()">Agregar</button>
             </div>
             <table class="table table-striped">

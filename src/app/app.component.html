@@ -1,10 +1,14 @@
-<h1 class="titulo-page">TO-DO LISTA</h1>
-<app-intrucciones></app-intrucciones>
+<app-intrucciones>
+</app-intrucciones>
+<div>
+    <button class="btn" type="button" (click)="borrar_listado()"> <img src="../assets/basura_abierta_positivo.png" alt="basura_todo"></button>
+    <br>
+</div>
 <div class="container text-center">
     <div class="row justify-content-md-center">
         <div class="col col-lg-2">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Tarea" aria-describedby="button-addon2" [(ngModel)]="newTarea" autofocus>
+                <input type="text" class="form-control" AutoFocusInputDirective placeholder="Tarea" [(ngModel)]="newTarea" (keyup)="$event.keyCode == 13 ? saveToDo() : null" autofocus>
                 <button class="btn btn-outline-secondary btn-success" type="button" id="boton-tarea" (click)="saveToDo()">Agregar</button>
             </div>
             <table class="table table-striped">
@@ -13,7 +17,7 @@
                     <tr *ngFor="let todo of tareas; let i = index;">
                         <th scope="row">{{i+1}}</th>
                         <td class="{{(!todo.isCompleted)?'done' :''}}" (click)="hecho(i)">{{todo.name}}</td>
-                        <td (click)="quitar(i)">x</td>
+                        <td (click)="quitar(i)"><button id="trash" class="btn"><img src="../assets/minibasura_cerrada.png" alt="basura"></button></td>
                     </tr>
                 </tbody>
             </table>

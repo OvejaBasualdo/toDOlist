@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IntruccionesComponent } from './intrucciones/intrucciones.component';
+import { AutoFocusInputDirective } from './auto-focus-input.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IntruccionesComponent
+    IntruccionesComponent,
+    AutoFocusInputDirective
   ],
   imports: [
     BrowserModule,

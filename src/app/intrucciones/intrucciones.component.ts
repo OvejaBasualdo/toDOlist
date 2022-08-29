@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-intrucciones',
   templateUrl: './intrucciones.component.html',
@@ -11,5 +12,6 @@ export class IntruccionesComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }

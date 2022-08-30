@@ -3,7 +3,11 @@
 
 /*Instalación de Bootstrap*/
 
-@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,100;1,200;1,300;1,600&display=swap');
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
 .done {
     text-decoration: line-through;
 }
@@ -15,5 +19,13 @@ body {
 header {
     margin: 10px;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    color: black;
 }

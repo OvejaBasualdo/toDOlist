@@ -2,6 +2,44 @@ h1.titulo-page {
     text-align: center;
 }
 
+div#ingreso {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div#ingreso input {
+    width: 70%;
+    font-weight: 400;
+    font-size: large;
+}
+
+div#ingreso button {
+    width: 15%
+}
+
+div.tabla {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+table {
+    border: black 2px solid;
+    width: 50%;
+    font-weight: 600;
+    font-size: large;
+}
+
+tbody tr td.done {
+    font-family: Poppins;
+    font-style: italic;
+    font-weight: 200;
+    font-size: large;
+}
+
 button#boton-tarea {
-    color: #ffff;
+    color: rgb(0, 0, 0);
 }

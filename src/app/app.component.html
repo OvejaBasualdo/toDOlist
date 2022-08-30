@@ -1,26 +1,21 @@
-<app-intrucciones>
-</app-intrucciones>
-<div>
-    <button class="btn" type="button" (click)="borrar_listado()"> <img src="../assets/basura_abierta_positivo.png" alt="basura_todo"></button>
-    <br>
-</div>
-<div class="container text-center">
-    <div class="row justify-content-md-center">
-        <div class="col col-lg-2">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" AutoFocusInputDirective placeholder="Tarea" [(ngModel)]="newTarea" (keyup)="$event.keyCode == 13 ? saveToDo() : null" autofocus>
-                <button class="btn btn-outline-secondary btn-success" type="button" id="boton-tarea" (click)="saveToDo()">Agregar</button>
-            </div>
-            <table class="table table-striped">
-
-                <tbody>
-                    <tr *ngFor="let todo of tareas; let i = index;">
-                        <th scope="row">{{i+1}}</th>
-                        <td class="{{(!todo.isCompleted)?'done' :''}}" (click)="hecho(i)">{{todo.name}}</td>
-                        <td (click)="quitar(i)"><button id="trash" class="btn"><img src="../assets/minibasura_cerrada.png" alt="basura"></button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+<div id="cuerpo">
+    <div id="ingreso">
+        <button class="btn" type="button" (click)="borrar_listado()"> <img src="assets/basura_abierta_positivo.png" alt="basura_todo"></button>
+        <input type="text" class="form-control" AutoFocusInputDirective placeholder="Tarea" [(ngModel)]="newTarea" (keyup)="$event.keyCode == 13 ? saveToDo() : null" autofocus>
+        <button class="btn" type="button" id="boton-tarea" (click)="saveToDo()"><img src="assets/mas_grande_positivo.png" alt="agregar"></button>
+    </div>
+    <div *ngIf="tareas.length > 0" class="tabla">
+        <table>
+            <thead>
+                <th colspan="3">LISTADO</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let todo of tareas; let i = index;">
+                    <th scope="row">{{i+1}}</th>
+                    <td class="{{(!todo.isCompleted)?'done' :''}}" (click)="hecho(i)">{{todo.name}}</td>
+                    <td (click)="quitar(i)"><button id="trash" class="btn"><img src="assets/minibasura_cerrada.png" alt="basura"></button></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

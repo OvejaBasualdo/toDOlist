@@ -12,7 +12,6 @@ export class AppComponent {
   tareas: Todo[] = []; /* aquí declaramos el array para las tareas */
   newTarea: string; /* variable donde se almacenaran las tareas que vayamos a crear */
 
-
 constructor(){
   let prueba = this.obtener_localStorage();
   if(prueba?.length > 0) {

@@ -1,5 +1,6 @@
 import { ThisReceiver } from '@angular/compiler';
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { IntruccionesComponent } from './intrucciones/intrucciones.component';
 import { Todo } from './Todo';
 
 
@@ -11,6 +12,8 @@ import { Todo } from './Todo';
 export class AppComponent {
   tareas: Todo[] = []; /* aquí declaramos el array para las tareas */
   newTarea: string; /* variable donde se almacenaran las tareas que vayamos a crear */
+  @ViewChild(IntruccionesComponent,{ static: false })
+  alertChild: IntruccionesComponent;
 
 constructor(){
   let prueba = this.obtener_localStorage();
@@ -60,6 +63,8 @@ constructor(){
     this.grabar_localStorage(this.tareas=[]);
 
   }
-
+  mostrarAyuda(){
+    this.alertChild.mostrar();
+  }
 
 }

@@ -33,6 +33,11 @@ table {
     font-size: large;
 }
 
+thead th {
+    border: black 2px solid;
+    border-collapse: collapse;
+}
+
 tbody tr td.done {
     font-family: Poppins;
     font-style: italic;

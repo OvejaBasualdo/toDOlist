@@ -1,9 +1,21 @@
+<header>
+    <div class="col-2 ">
+        <button id="modo" class="btn"> <img src="assets/luna_positivo.png" alt="luna Hoy" id="logo"></button>
+    </div>
+    <div class="col-8">
+        <img src="assets/LOGO_HOY_POSITIVO.png" alt="Logo Hoy" id="logo">
+    </div>
+    <div class="col-2">
+        <button id="ayuda" class="btn" (click)="mostrarAyuda()"><img src="assets/ayuda_positivo.png" alt="ayuda"></button>
+    </div>
+</header>
 <div id="cuerpo">
     <div id="ingreso">
         <button class="btn" type="button" (click)="borrar_listado()"> <img src="assets/basura_abierta_positivo.png" alt="basura_todo"></button>
         <input type="text" class="form-control" AutoFocusInputDirective placeholder="Tarea" [(ngModel)]="newTarea" (keyup)="$event.keyCode == 13 ? saveToDo() : null" autofocus>
         <button class="btn" type="button" id="boton-tarea" (click)="saveToDo()"><img src="assets/mas_grande_positivo.png" alt="agregar"></button>
     </div>
+    <app-intrucciones></app-intrucciones>
     <div *ngIf="tareas.length > 0" class="tabla">
         <table>
             <thead>

@@ -8,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntruccionesComponent implements OnInit {
 
-  constructor() { }
+  modalSwitch: boolean;
+
+  constructor() {
+    this.modalSwitch = false;
+   }
 
   ngOnInit(): void {
   }
-
+  mostrar(){
+    this.modalSwitch = true;
+  }
+  ocultar(){
+  this.modalSwitch = false;
+}
 
 }

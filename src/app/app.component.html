@@ -6,7 +6,7 @@
         <img src="assets/LOGO_HOY_POSITIVO.png" alt="Logo Hoy" id="logo">
     </div>
     <div class="col-2">
-        <button id="ayuda" class="btn" (click)="mostrarAyuda()"><img src="assets/ayuda_positivo.png" alt="ayuda"></button>
+        <button id="ayuda" class="btn" (click)="mostrarAyuda()"><img src="assets/BOTON_ayuda_positivo.png" alt="ayuda"></button>
     </div>
 </header>
 <div id="cuerpo">
@@ -24,7 +24,7 @@
             <tbody>
                 <tr *ngFor="let todo of tareas; let i = index;">
                     <th scope="row">{{i+1}}</th>
-                    <td class="{{(!todo.isCompleted)?'done' :''}}" (click)="hecho(i)">{{todo.name}}</td>
+                    <td class="{{(todo.isCompleted)?'done' :''}}" (click)="hecho(i)">{{todo.name}}</td>
                     <td (click)="quitar(i)"><button id="trash" class="btn"><img src="assets/minibasura_cerrada.png" alt="basura"></button></td>
                 </tr>
             </tbody>

@@ -10,7 +10,7 @@ import { AutoFocusInputDirective } from './auto-focus-input.directive';
   declarations: [
     AppComponent,
     IntruccionesComponent,
-    AutoFocusInputDirective
+    AutoFocusInputDirective,
   ],
   imports: [
     BrowserModule,

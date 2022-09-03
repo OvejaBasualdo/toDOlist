@@ -1,5 +1,5 @@
 import { ThisReceiver } from '@angular/compiler';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { IntruccionesComponent } from './intrucciones/intrucciones.component';
 import { Todo } from './Todo';
 
@@ -26,7 +26,7 @@ constructor(){
     if (this.newTarea) {
       let ingresoTarea = new Todo();
       ingresoTarea.name = this.newTarea;
-      ingresoTarea.isCompleted = true;
+      ingresoTarea.isCompleted = false;
       this.tareas.push(ingresoTarea);
       this.grabar_localStorage(this.tareas);
       this.newTarea = '';
@@ -67,4 +67,18 @@ constructor(){
     this.alertChild.mostrar();
   }
 
-}
+  @HostListener('document:keyup', ['$event.key'])
+  handleKey($event: string):void {
+    if($event == 'Escape'){
+      this.alertChild.modalSwitch = false;
+    }
+  }
+  @HostListener('document:click', ['$event.target'])
+  handleClick($event: HTMLElement): void{
+    console.log('click',$event.classList.toString());
+    if($event.classList.toString() == 'modal'){
+      this.alertChild.modalSwitch = false;
+    }
+  }
+
+  }

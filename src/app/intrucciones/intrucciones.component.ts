@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 
 @Component({
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./intrucciones.component.scss']
 })
 export class IntruccionesComponent implements OnInit {
+
 
   modalSwitch: boolean;
 

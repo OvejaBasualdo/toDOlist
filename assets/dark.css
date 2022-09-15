@@ -1,0 +1,49 @@
+body {
+    background-color: rgb(0, 0, 0);
+}
+
+img {
+    filter: invert(100%);
+}
+
+input::-webkit-input-placeholder {
+    background-color: rgb(0, 0, 0);
+}
+
+div#ingreso input {
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+}
+
+table {
+    border: rgb(255, 255, 255) 2px solid;
+    color: rgb(255, 255, 255)
+}
+
+thead th {
+    border: rgb(255, 255, 255) 2px solid;
+    color: rgb(255, 255, 255);
+}
+
+button#boton-tarea {
+    color: rgb(255, 255, 255);
+}
+
+
+/*CSS del modal*/
+
+h2,
+p {
+    color: rgb(255, 255, 255);
+}
+
+div.modal {
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 10000;
+    border: 1px solid rgba(253, 251, 251, 0.6);
+}
+
+div.card-modal {
+    width: 60%;
+    background-color: rgb(0, 0, 0);
+}

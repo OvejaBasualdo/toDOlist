@@ -1,7 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    top: 0;
+    box-sizing: border-box;
+}
 
 
-/*Instalación de Bootstrap*/
+/*Instalación de fuente Poppins*/
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,100;1,200;1,300;1,600&display=swap');
 * {
@@ -16,16 +20,7 @@ body {
     background-color: #ffff;
 }
 
-header {
-    margin: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
 button {
     background-color: transparent;
     border: none;
-    color: black;
 }

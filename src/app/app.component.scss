@@ -1,4 +1,12 @@
-h1.titulo-page {
+header {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input::-webkit-input-placeholder {
     text-align: center;
 }
 
@@ -27,14 +35,12 @@ div.tabla {
 }
 
 table {
-    border: black 2px solid;
     width: 50%;
     font-weight: 600;
     font-size: large;
 }
 
 thead th {
-    border: black 2px solid;
     border-collapse: collapse;
 }
 
@@ -43,8 +49,4 @@ tbody tr td.done {
     font-style: italic;
     font-weight: 200;
     font-size: large;
-}
-
-button#boton-tarea {
-    color: rgb(0, 0, 0);
 }

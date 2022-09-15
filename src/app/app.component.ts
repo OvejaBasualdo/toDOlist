@@ -1,6 +1,8 @@
 import { ThisReceiver } from '@angular/compiler';
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Output, ViewChild } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { IntruccionesComponent } from './intrucciones/intrucciones.component';
+import { ModoNocturnoComponent } from './modo-nocturno/modo-nocturno.component';
 import { Todo } from './Todo';
 
 
@@ -14,14 +16,23 @@ export class AppComponent {
   newTarea: string; /* variable donde se almacenaran las tareas que vayamos a crear */
   @ViewChild(IntruccionesComponent,{ static: false })
   alertChild: IntruccionesComponent;
-
-constructor(){
+  darkMode: boolean;
+  cssUrl: string;
+constructor(public sanitizer: DomSanitizer){
   let prueba = this.obtener_localStorage();
+  this.cssUrl = '/assets/light.css';
   if(prueba?.length > 0) {
     this.tareas = prueba;
   }
 }
-
+onEventoModoOscuro(evento:boolean){
+  this.darkMode = evento;
+  if(!evento){
+    this.cssUrl = `/assets/light.css`;
+  }else{
+    this.cssUrl = `/assets/dark.css`;
+  }
+}
   saveToDo() {
     if (this.newTarea) {
       let ingresoTarea = new Todo();
@@ -67,6 +78,7 @@ constructor(){
     this.alertChild.mostrar();
   }
 
+
   @HostListener('document:keyup', ['$event.key'])
   handleKey($event: string):void {
     if($event == 'Escape'){
@@ -75,7 +87,6 @@ constructor(){
   }
   @HostListener('document:click', ['$event.target'])
   handleClick($event: HTMLElement): void{
-    console.log('click',$event.classList.toString());
     if($event.classList.toString() == 'modal'){
       this.alertChild.modalSwitch = false;
     }

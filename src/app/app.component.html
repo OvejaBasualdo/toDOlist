@@ -1,33 +1,53 @@
-<header>
-    <div class="col-2 ">
-        <button id="modo" class="btn"> <img src="assets/luna_positivo.png" alt="luna Hoy" id="logo"></button>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HOY!</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Diego Basualdo">
+    <meta name="keywords" content="TODO, ovejaBasualdo, Diego Basualdo">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" [href]="sanitizer.bypassSecurityTrustResourceUrl(cssUrl)">
+</head>
+
+<body>
+    <header>
+        <div class="col-2 ">
+            <app-modo-nocturno (EventoModoOscuro)=onEventoModoOscuro($event)></app-modo-nocturno>
+        </div>
+        <div class="col-8">
+            <img src="assets/LOGO_HOY!.svg" height="110">
+        </div>
+        <div class="col-2">
+            <button id="ayuda" class="btn" (click)="mostrarAyuda()"><img src="assets/BOTON_ayuda_positivo.svg" width="60" height="75"></button>
+
+        </div>
+    </header>
+    <div id="cuerpo">
+        <div id="ingreso">
+            <button class="btn" type="button" (click)="borrar_listado()"> <img src="assets/basura_abierta.svg " width="100" height="100" alt="basura_todo"></button>
+            <input type="text" class="form-control" AutoFocusInputDirective placeholder="INGRESA TU TAREA AQUÍ" [(ngModel)]="newTarea" (keyup)="$event.keyCode == 13 ? saveToDo() : null" autofocus>
+            <button class="btn" type="button" id="boton-tarea" (click)="saveToDo()"><img src="assets/mas_grande_positivo.svg"width="100" height="100" alt="agregar"></button>
+        </div>
+        <app-intrucciones></app-intrucciones>
+        <div *ngIf="tareas.length > 0" class="tabla">
+            <table>
+                <thead>
+                    <th colspan="3">LISTADO</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let todo of tareas; let i = index;">
+                        <th scope="row">{{i+1}}</th>
+                        <td class="{{(todo.isCompleted)?'done' :''}}" (click)="hecho(i)">{{todo.name}}</td>
+                        <td (click)="quitar(i)"><button id="trash" class="btn"><img src="assets/basura_cerrada_positivo.svg" width="18" alt="basura"></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div class="col-8">
-        <img src="assets/LOGO_HOY_POSITIVO.png" alt="Logo Hoy" id="logo">
-    </div>
-    <div class="col-2">
-        <button id="ayuda" class="btn" (click)="mostrarAyuda()"><img src="assets/BOTON_ayuda_positivo.png" alt="ayuda"></button>
-    </div>
-</header>
-<div id="cuerpo">
-    <div id="ingreso">
-        <button class="btn" type="button" (click)="borrar_listado()"> <img src="assets/basura_abierta_positivo.png" alt="basura_todo"></button>
-        <input type="text" class="form-control" AutoFocusInputDirective placeholder="Tarea" [(ngModel)]="newTarea" (keyup)="$event.keyCode == 13 ? saveToDo() : null" autofocus>
-        <button class="btn" type="button" id="boton-tarea" (click)="saveToDo()"><img src="assets/mas_grande_positivo.png" alt="agregar"></button>
-    </div>
-    <app-intrucciones></app-intrucciones>
-    <div *ngIf="tareas.length > 0" class="tabla">
-        <table>
-            <thead>
-                <th colspan="3">LISTADO</th>
-            </thead>
-            <tbody>
-                <tr *ngFor="let todo of tareas; let i = index;">
-                    <th scope="row">{{i+1}}</th>
-                    <td class="{{(todo.isCompleted)?'done' :''}}" (click)="hecho(i)">{{todo.name}}</td>
-                    <td (click)="quitar(i)"><button id="trash" class="btn"><img src="assets/minibasura_cerrada.png" alt="basura"></button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+/*HACE REFERENCIA AL BOTÓN DEL LADO LUNA*/
+
+.mode-type input:checked~span::after {
+    background: rgb(0, 0, 0);
+    border-width: 3px;
+    transform: scale(0.9) translate(30px);
+}
+
+.mode-type input:checked~span fa-icon {
+    transform: translate(27px);
+    opacity: 1;
+}
+
+.mode-type input {
+    display: none;
+}
+
+
+/*fondo de desplazamiento botón al inicio*/
+
+.mode-type span {
+    background: rgb(0, 0, 0);
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: inset 0px 0px 2px rgb(0, 0, 0);
+    /**/
+    position: relative;
+    transition: 0.5s;
+}
+
+
+/*fondo de desplazamiento botón al final*/
+
+.mode-type input:checked~span {
+    background: rgb(255, 255, 255);
+    border-color: black;
+    border-width: 1px;
+    transition: 0.5s;
+}
+
+
+/*botón al inicio - botón al lado izquierdo*/
+
+.mode-type span::after {
+    display: block;
+    content: "";
+    width: 30px;
+    height: 30px;
+    transform: scale(0.8);
+    background: rgb(255, 255, 255);
+    border-radius: 30px;
+    transition: 0.5s;
+    box-shadow: inset 0px 0px 2px rgb(78, 77, 77);
+}
+
+
+/*disposiciones del icono luna */
+
+.mode-type fa-icon.on {
+    position: absolute;
+    left: 11px;
+    top: 7px;
+    z-index: 1;
+    transition: 0.5s;
+    filter: invert(100%);
+}
+
+.mode-type .on {
+    opacity: 0;
+}
+
+.mode-type input:checked~span .on {
+    transform: translate(25px);
+    opacity: 1;
+}
+
+
+/*disposiciones del icono sol*/
+
+.mode-type input:checked~span .off {
+    transform: translate(30px);
+    opacity: 0;
+}
+
+.mode-type fa-icon.off {
+    position: absolute;
+    left: 7px;
+    top: 7px;
+    z-index: 1;
+    transition: 0.5s;
+}

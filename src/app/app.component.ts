@@ -20,7 +20,7 @@ export class AppComponent {
   cssUrl: string;
 constructor(public sanitizer: DomSanitizer){
   let prueba = this.obtener_localStorage();
-  this.cssUrl = '/assets/light.css';
+  this.cssUrl = 'assets/light.css';
   if(prueba?.length > 0) {
     this.tareas = prueba;
   }
@@ -28,13 +28,12 @@ constructor(public sanitizer: DomSanitizer){
 onEventoModoOscuro(evento:boolean){
   this.darkMode = evento;
   if(!evento){
-    this.cssUrl = `/assets/light.css`;
+    this.cssUrl = `assets/light.css`;
     console.log("light");
   }else{
-    this.cssUrl = `/assets/dark.css`;
+    this.cssUrl = `assets/dark.css`;
     console.log("dark");
   }
-  console.log(this.cssUrl.toString())
 }
   saveToDo() {
     if (this.newTarea) {

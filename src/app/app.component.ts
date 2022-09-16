@@ -29,9 +29,12 @@ onEventoModoOscuro(evento:boolean){
   this.darkMode = evento;
   if(!evento){
     this.cssUrl = `/assets/light.css`;
+    console.log("light");
   }else{
     this.cssUrl = `/assets/dark.css`;
+    console.log("dark");
   }
+  console.log(this.cssUrl.toString())
 }
   saveToDo() {
     if (this.newTarea) {

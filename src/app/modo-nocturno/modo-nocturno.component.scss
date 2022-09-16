@@ -61,8 +61,8 @@
 
 .mode-type fa-icon.on {
     position: absolute;
-    left: 11px;
-    top: 7px;
+    left: 10px;
+    top: 3px;
     z-index: 1;
     transition: 0.5s;
     filter: invert(100%);
@@ -88,7 +88,7 @@
 .mode-type fa-icon.off {
     position: absolute;
     left: 7px;
-    top: 7px;
+    top: 3px;
     z-index: 1;
     transition: 0.5s;
 }

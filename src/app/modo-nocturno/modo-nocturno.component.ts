@@ -11,7 +11,7 @@ export class ModoNocturnoComponent implements OnInit {
   faMoon = faMoon;
   faSun = faSun ;
   modoOscuro: boolean ;
-  /*@Input() CapturaBoolean: boolean;*/
+
   @Output() EventoModoOscuro: EventEmitter<boolean> = new EventEmitter;
 
 
@@ -22,7 +22,6 @@ export class ModoNocturnoComponent implements OnInit {
 
   claseOscura(){
 this.modoOscuro=!this.modoOscuro;
-console.log(this.modoOscuro)
 this.EventoModoOscuro.emit(this.modoOscuro);
 }
 

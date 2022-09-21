@@ -1,14 +1,15 @@
 <link rel="stylesheet" [href]="sanitizer.bypassSecurityTrustResourceUrl(cssUrl)">
 <header>
-    <div class="col-2 ">
+    <div>
         <app-modo-nocturno (EventoModoOscuro)=onEventoModoOscuro($event)></app-modo-nocturno>
     </div>
-    <div class="col-8">
-        <img src="assets/LOGO_HOY!.svg" height="110">
-    </div>
-    <div class="col-2">
+    <picture>
+        <source media="(max-width: 650px)" srcset="assets/HOY!.svg" height="80">
+        <source media="(min-width: 800px)" srcset="assets/LOGO_HOY!.svg" height="110">
+        <img src="assets/LOGO_HOY!.svg" alt="LOGO" height="110">
+    </picture>
+    <div>
         <button id="ayuda" class="btn" (click)="mostrarAyuda()"><img src="assets/BOTON_ayuda_positivo.svg" width="60" height="75"></button>
-
     </div>
 </header>
 <div id="cuerpo">
